@@ -1,0 +1,41 @@
+[user]
+    name = Anthony Tiradani
+    email =
+[color]
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    ui = auto
+[core]
+    excludesfile = /home/tiradani/.gitignore
+[alias]
+    alias = "!foo() { [ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1;};foo"
+    aliases = !git config --get-regexp 'alias\\..*' | colrm 1 6 | sed 's/[ ]/ = /'
+    mf = merge --ff-only
+    mw = merge --ff-only work
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lgi = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+    log-dec = log --oneline --graph --decorate
+    log-dec-all = log --oneline --graph --decorate --all
+    k = !gitk
+    st = status
+    ci = commit -v
+    br = branch
+    co = checkout
+    df = diff
+    files-v2 = !sh -c 'git diff origin/branch_v2plus | egrep ^---'
+    files-m = !sh -c 'git diff origin/master | egrep ^---'
+    repo-diff = diff --stat origin/master
+    currbranch = "!foo3() { git branch --no-color 2> /dev/null | grep \"^*\" | cut -d\" \" -f2;};foo3"
+    createtar = !tar czvf ../git-$(date +'%Y%m%d-%H%M')-$(git currbranch).tar.gz .
+    panic = "!foo2() { [ -d .git ] && git createtar  && exit 0 || echo \"ERROR: You are not in a git dirrectory\" && exit 1;};foo2"
+    rdiff = !sh -c "b=$(git branch --no-color 2> /dev/null | grep '^*' | cut -d\" \" -f2;); echo $b;"
+
+[github]
+    user = tiradani
+[push]
+    default = simple
+[gui]
+    recentrepo =

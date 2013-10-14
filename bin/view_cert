@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cert=$1
+all=$2
+
+if [ -n "$all" ]
+then
+    openssl x509 -text -in $cert
+else
+    # the above, all at once
+    openssl x509 -noout -in $cert -issuer -subject -dates
+fi
+

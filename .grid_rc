@@ -1,0 +1,5 @@
+# GRID Setup
+export X509_CERT_DIR=/etc/grid-security/certificates
+export X509_USER_PROXY=/tmp/x509up_u$(id -u)
+export X509_VOMS_DIR=/etc/grid-security/vomsdir/
+export GLOBUS_TCP_PORT_RANGE=20000,25000

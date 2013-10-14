@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mount_point=$1
+
+fusermount -u ${mount_point}
+

@@ -1,0 +1,24 @@
+git_version=$(git --version | cut --delimiter=' ' -f3)
+source /usr/share/doc/git-${git_version}/contrib/completion/git-prompt.sh
+
+set_my_prompt() {
+    local OPEN="\[";
+    local CLOSE="\]";
+    local red="${OPEN}\033[0;31m${CLOSE}"
+    local RED="${OPEN}\033[1;31m${CLOSE}"
+    local blue="${OPEN}\033[0;34m${CLOSE}"
+    local BLUE="${OPEN}\033[1;34m${CLOSE}"
+    local cyan="${OPEN}\033[0;36m${CLOSE}"
+    local CYAN="${OPEN}\033[1;36m${CLOSE}"
+    local NC="${OPEN}\033[0m${CLOSE}"              # No Color
+
+
+    local echoBLUE="\033[1;34m"
+    local echoRED="\033[1;31m"
+    local echoNC="\033[0m"              # No Color
+#    echo -e "${echoBLUE}This is BASH ${echoRED}${BASH_VERSION%.*}${echoBLUE} - DISPLAY on ${echoRED}$DISPLAY${echoNC}\n"
+#    date
+    export PS1="${red}[\u@\h] ${NC}\W"'$(__git_ps1 " (%s)") > '
+}
+
+set_my_prompt

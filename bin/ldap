@@ -1,0 +1,8 @@
+#!/bin/bash
+
+server=$1
+shift
+flags="-x -LLL -H ldap://${server}:2170/ -b mds-vo-name=local,o=grid"
+
+unwrap ${flags} $@
+

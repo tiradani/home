@@ -1,0 +1,80 @@
+#!/bin/bash
+
+function usage
+{
+cat << EOF
+usage: $0 options
+
+This script will convert certificates from one format to another.  It
+currently only supports .pem form and PKCS12 form.
+
+OPTIONS:
+   -h       Show this message
+   -t       Convert to format.  Can be PEM or PKCS12 - (required)
+   -c       certificate.pem file - (required)
+   -k       key.pem file - (required)
+   -o       certificate.pkcs12 file - (required)
+EOF
+}
+
+function check_args
+{
+    while getopts “hf:t:c:k:o:” OPTION
+    do
+         case $OPTION in
+             h)
+                 usage
+                 exit 1
+                 ;;
+             t)
+                 export CONVERT_TO=$OPTARG
+                 ;;
+             c)
+                 export CERT=$OPTARG
+                 ;;
+             k)
+                 export KEY=$OPTARG
+                 ;;
+             o)
+                 export PKCS12=$OPTARG
+                 ;;
+             ?)
+                 usage
+                 exit 1
+                 ;;
+         esac
+    done
+
+    echo 'Using the following values:'
+    echo '    Converting To:      '${CONVERT_TO}
+    echo '    .pem Certificate:   '${CERT}
+    echo '    .pem Key:           '${KEY}
+    echo '    PKCS12 Certificate: '${PKCS12}
+}
+
+check_args $@
+
+if [[ "${CONVERT_TO}" == "PEM" ]]; then
+    if [[ -z "${PKCS12}" ]]; then
+        echo 'PKCS12 certificate not sepecified.'
+        usage
+        exit 1
+    fi
+
+    openssl pkcs12 -in ${PKCS12} -clcerts -nokeys -out ${CERT}
+    openssl pkcs12 -in ${PKCS12} -nocerts -out ${KEY}
+    chmod 400 ${KEY}
+    chmod 600 ${CERT}
+elif [[ "${CONVERT_TO}" == "PKCS12" ]]
+then
+    if [[ -z "${CERT}" ]] || [[ -z "${KEY}" ]]; then
+        echo '.pem certificate or key not sepecified.'
+        usage
+        exit 1
+    fi
+
+    openssl pkcs12 -export -in ${CERT} -inkey ${KEY} -out ${PKCS12}
+else
+   usage
+   exit 1
+fi

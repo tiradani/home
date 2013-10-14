@@ -1,0 +1,3 @@
+#!/bin/bash
+
+su -c "sync && /sbin/sysctl vm.drop_caches=3 && swapoff -a && swapon -a"

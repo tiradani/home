@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cur_dur=`pwd`
+cd ~
+find -iname '*.sol'
+cd $cur_dir

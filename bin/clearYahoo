@@ -1,0 +1,6 @@
+#/bin/bash
+
+YAHOO_ACCOUNT=$1
+
+echo "Clearing Pidgin Yahoo logs for ${YAHOO_ACCOUNT}..."
+rm -rf ~/.purple/logs/aim/${YAHOO_ACCOUNT}

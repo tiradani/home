@@ -1,0 +1,6 @@
+#/bin/bash
+
+AIM_ACCOUNT=$1
+
+echo "Clearing Pidgin AIM logs for ${AIM_ACCOUNT}..."
+rm -rf ~/.purple/logs/aim/${AIM_ACCOUNT}

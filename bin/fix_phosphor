@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "$(color green)Broken Phosphor - /usr/share/applications/screensavers/xscreensaver-phosphor.desktop: $(color off)"
+echo "$(color green)===================================================================================== $(color off)"
+echo "$(color yellow)"
+
+cat /usr/share/applications/screensavers/xscreensaver-phosphor.desktop
+
+echo " $(color off)"
+echo " "
+echo "$(color green)...Fixing Phosphor Now$(color off)"
+
+su -c 'sed -i "s,^Exec=.*,Exec=/usr/libexec/xscreensaver/phosphor -root -program fortune," /usr/share/applications/screensavers/xscreensaver-phosphor.desktop'
+RTN=$?
+echo " "
+if [ ${RTN} -eq 0 ]; then
+    echo "$(color green)Fixed Phosphor - /usr/share/applications/screensavers/xscreensaver-phosphor.desktop: $(color off)"
+    echo "$(color green)===================================================================================== $(color off)"
+
+    echo "$(color blue)"
+    cat /usr/share/applications/screensavers/xscreensaver-phosphor.desktop
+    echo " $(color off)"
+else
+    echo "$(color bold red)Fix command returned: ${RTN}$(color off)"
+fi

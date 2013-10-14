@@ -1,0 +1,29 @@
+## compiled python programs
+*.pyc
+
+## vim editor swp file
+*.swp
+
+## eclipse files
+.project
+.buildpath
+.pydevproject
+.settings
+
+## packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+## logs
+*.log
+
+## rpm build artifacts
+*/rpms/
+*/srpms/
+*/rpmbuild/

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+chmod -Rv 0500 ~/.macromedia/Flash_Player/#SharedObjects/ ~/.macromedia/Flash_Player/macromedia.com/support/flashplayer/sys/

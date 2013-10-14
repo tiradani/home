@@ -1,0 +1,7 @@
+#!/bin/bash
+
+remote_server=$1
+mount_point=$2
+
+sshfs -o workaround=rename ${remote_server} ${mount_point}
+
