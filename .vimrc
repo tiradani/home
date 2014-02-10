@@ -6,9 +6,13 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" Set to auto read when a file is changed from the outside
+set autoread
+
 " syntax highlighting
 syntax on
 
+" A buffer becomes hidden when it is abandoned
 set hidden
 
 " Set the forward slash to be the slash of note
@@ -16,6 +20,9 @@ set shellslash
 
 " don't update display while executing macros - speed up macros
 set lazyredraw
+
+" show the cursor position all the time
+set ruler
 
 " show what mode you are in
 set showmode
@@ -42,9 +49,12 @@ set softtabstop=4
 set autoindent
 set laststatus=2
 set showmatch
+
+" Makes search act like search in modern browsers
 set incsearch
+
+" Highlight search results
 set hlsearch
-set nowrap
 
 " make searches case-sensitive only if they contain uppercase characters
 set ignorecase smartcase
@@ -65,6 +75,7 @@ set virtualedit=onemore
 
 " persistent undo
 set undofile
+set undodir=~/.vim-tmp
 set undolevels=1000   " max changes that can be undone
 set undoreload=10000  " max number of lines to save for undo on a buffer reload
 

@@ -7,6 +7,7 @@ fi
 
 # Options
 shopt -s cdspell
+shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s extglob
 shopt -s histappend
@@ -15,9 +16,10 @@ shopt -s histverify
 shopt -s no_empty_cmd_completion
 
 export HISTCONTROL=ignoredups
+export HISTIGNORE='rm -rf*:reboot'
 export BROWSER=firefox
 
-export PATH=$PATH:/usr/sbin:/sbin:/usr/local/bin:/home/tiradani/bin
+export PATH=$PATH:/usr/sbin:/sbin:/usr/local/bin:/home/tiradani:/home/tiradani/bin
 
 source .aliases
 source .git_rc
