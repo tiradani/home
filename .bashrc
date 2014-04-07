@@ -21,6 +21,7 @@ export BROWSER=firefox
 
 export PATH=$PATH:/usr/sbin:/sbin:/usr/local/bin:/home/tiradani:/home/tiradani/bin
 
+source .bash_functions
 source .aliases
 source .git_rc
 source .grid_rc
