@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cur_dir=`pwd`
-cd ~
-find -iname '*.sol' -exec rm "{}" \;
-cd $cur_dir

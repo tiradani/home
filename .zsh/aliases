@@ -11,7 +11,6 @@ alias df='df -kh'
 alias h='history | grep'
 alias kinit='/usr/bin/kinit -f -r7d -l26h'
 alias wget="curl -O"
-alias confluence='ssh -X confluence.fnal.gov'
 alias h='() { history | $(whence -p grep) --color=auto $@ }'
 
 # Generic command adaptations
