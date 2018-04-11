@@ -1,0 +1,21 @@
+## =============================================================================
+##                                   Aliases
+## =============================================================================
+alias rm='rm -rf'
+alias cp='cp -rp'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias ls='ls -lahG'
+alias du='du -kh'
+alias df='df -kh'
+alias h='history | grep'
+alias kinit='/usr/bin/kinit -f -r7d -l26h'
+alias wget="curl -O"
+alias confluence='ssh -X confluence.fnal.gov'
+alias h='() { history | $(whence -p grep) --color=auto $@ }'
+
+# Generic command adaptations
+alias grep='() { $(whence -p grep) --color=auto $@ }'
+alias egrep='() { $(whence -p egrep) --color=auto $@ }'
+
+alias wifi_status='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I'

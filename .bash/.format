@@ -1,0 +1,33 @@
+# Text Formats
+bold=$(tput bold)           # Select bold mode
+dim=$(tput dim)             # Select dim (half-bright) mode
+uline=$(tput smul)          # Enable underline mode
+remove_uline=$(tput rmul)   # Disable underline mode
+reverse=$(tput rev)         # Turn on reverse video mode
+standout=$(tput smso)       # Enter standout (bold) mode
+exit_standout=$(tput rmso)  # Exit standout mode
+
+#  Colors:
+#
+#  Num  Color     #define         R G B
+#  0    black     COLOR_BLACK     0,0,0
+#  1    red       COLOR_RED       1,0,0
+#  2    green     COLOR_GREEN     0,1,0
+#  3    yellow    COLOR_YELLOW    1,1,0
+#  4    blue      COLOR_BLUE      0,0,1
+#  5    magenta   COLOR_MAGENTA   1,0,1
+#  6    cyan      COLOR_CYAN      0,1,1
+#  7    white     COLOR_WHITE     1,1,1
+
+black=$(tput setab 0)   # Set the background color using ANSI escape
+red=$(tput setab 1)     # Set the background color using ANSI escape
+green=$(tput setab 2)   # Set the background color using ANSI escape
+yellow=$(tput setab 3)  # Set the background color using ANSI escape
+blue=$(tput setab 4)    # Set the background color using ANSI escape
+magenta=$(tput setab 5) # Set the background color using ANSI escape
+cyan=$(tput setab 6)    # Set the background color using ANSI escape
+white=$(tput setab 7)   # Set the background color using ANSI escape
+
+normal=$(tput sgr0)    # Reset text format to the terminal's default
+bell=$(tput bel)       # Play a bell
+

@@ -1,3 +1,6 @@
+" set up pathogen
+execute pathogen#infect()
+
 " Forget about vi compatibility
 set nocompatible
 
@@ -68,7 +71,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp
 set showcmd
 
 " Assume dark background
-" set background=dark
+set background=dark
 
 " allow cursor beyond last character
 set virtualedit=onemore
@@ -87,4 +90,8 @@ set statusline+=\ [%{getcwd()}]          " current directory
 set statusline+=%=%-14.(%l,%c%v%)\ %p%%  " right aligned file nav info
 
 execute pathogen#infect()
+
+" airline settings
+let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
 

@@ -1,0 +1,30 @@
+alias workoff='deactivate'
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_REQUIRE_VIRTUALENV=true
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+gpip(){
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+vhelp(){
+  echo "  ${bold}mkvirtualenv${normal} test"
+  echo "    Will create a test environment and activate it automatically."
+  echo ""
+  echo "  ${bold}workon${normal} scientific"
+  echo "    Switches you to the (already created) scientific environment."
+  echo ""
+  echo "  ${bold}workon${normal}"
+  echo "    When you don't specify an environment, this will print all existing environments available."
+  echo ""
+  echo "  ${bold}deactivate${normal}"
+  echo "    Disables the currently active environment, if any."
+  echo ""
+  echo "  ${bold}rmvirtualenv${normal} statistics"
+  echo "    Completely remove the statistics environment."
+}
+
